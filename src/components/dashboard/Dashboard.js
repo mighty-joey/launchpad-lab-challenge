@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import GitHubService from './GitHubService'
-import GitHubTable from './GitHubTable';
+import DashboardService from './DashboardService'
+import DashboardTable from './DashboardTable';
 import Commits from './Commits';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -28,7 +28,7 @@ const Dashboard = () => {
     }, []);
 
     const getGitHubData = () => {
-        GitHubService.fetchAllGitHubData().then(data => {
+        DashboardService.fetchAllGitHubData().then(data => {
             setGitHubData(data);
             setLastUpdate(new Date().toLocaleTimeString());
         },
@@ -40,7 +40,7 @@ const Dashboard = () => {
     }
 
     const getGitHubCommitData = () => {
-        GitHubService.fetchAllGitHubCommitData().then(data => {
+        DashboardService.fetchAllGitHubCommitData().then(data => {
             setGitHubCommitData(data);
             setLastUpdate(new Date().toLocaleTimeString());
         },
@@ -79,7 +79,7 @@ const Dashboard = () => {
             </div>
             <div>
                 <h2>GitHub Statistics</h2>
-                <GitHubTable gitHubData={gitHubData} />
+                <DashboardTable gitHubData={gitHubData} />
             </div>
             <div>
                 <h2>Recent Commits</h2>
