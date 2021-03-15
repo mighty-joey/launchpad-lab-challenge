@@ -19,17 +19,19 @@ const Commits = ({ commits }) => {
     return (
         <>
             {commits.map(commit => (
+                // uuidv4() below generates unique IDs to assign to each array element being mapped over, in this case 'commit'
+                // Keys help React identify which elements have changed - to make DOM updates efficient 
                 <div className="commit" key={uuidv4()}>
-                    <div>
-                        <span className="bold">Author </span>
+                    <div className="commit-row">
+                        <span className="lighter">Author </span>
                         <span>{commit.commit.author.name}</span>
                     </div>
-                    <div>
-                        <span className="bold">Date/Time </span>
+                    <div className="commit-row">
+                        <span className="lighter">Date/Time </span>
                         <span>{getDateTimeString(commit.commit.author.date)}</span>
                     </div>
-                    <div>
-                        <span className="bold">Description </span>
+                    <div className="commit-row">
+                        <span className="lighter">Description </span>
                         <span>{getTruncatedMessage(commit.commit.message)}
                             {getIsMessageTruncated(commit.commit.message) && "..."}
                         </span>

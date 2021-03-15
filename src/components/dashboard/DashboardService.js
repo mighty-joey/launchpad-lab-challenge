@@ -8,9 +8,13 @@ const URL = {
 const COMMITS_SUFFIX = '/commits';
 
 const GitHubService = {
-    fetchData: async url => {
-        const response = await fetch(url);
-        return await response.json();
+    fetchData: url => {
+        return fetch(url).then(response => {
+            if (!response.ok) {
+                throw new Error(response.error);
+            }
+            return response.json();
+        });
     },
 
     fetchAllGitHubData: () => {

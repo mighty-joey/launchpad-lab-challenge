@@ -3,6 +3,8 @@
     grid-template-rows: auto;
     grid-row-gap: 15px;
     margin: 15px;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: .9rem;
 }
 
 .recent-commits {
@@ -12,9 +14,16 @@
 }
 
 .commit {
-    padding-top: 15px;
+    grid-template-rows: auto;
+    padding-bottom: 12px;
 }
 
-.bold {
-    font-weight: bold;
+.commit-row {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding-bottom: 5px;
+}
+
+.lighter {
+    font-weight: lighter;
 }
