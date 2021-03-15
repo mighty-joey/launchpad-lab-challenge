@@ -30,7 +30,6 @@ const Dashboard = () => {
 
     const getGitHubData = () => {
         DashboardService.fetchAllGitHubData().then(data => {
-            console.log(data);
             setGitHubData(data);
             setLastUpdate(new Date().toLocaleTimeString());
             setLoadingState('complete');
