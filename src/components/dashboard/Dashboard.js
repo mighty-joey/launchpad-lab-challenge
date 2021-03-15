@@ -43,7 +43,6 @@ const Dashboard = () => {
             setGitHubCommitData(data);
             setLastUpdate(new Date().toLocaleTimeString());
             setLoadingState('complete');
-
         }, () => {
             setLoadingState('error');
         });
